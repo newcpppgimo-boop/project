@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PrimeOne Car Rental</title>
+<style>
+  :root {
+    --bg-top: #0a0e18;
+    --bg-bottom: #131c30;
+    --gold: #d4af6a;
+    --gold-soft: #b8934f;
+    --red: #a4342a;
+    --line: rgba(212, 175, 106, 0.18);
+    --text-dim: #7d8598;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px;
+    min-height: 100vh;
+    background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+    isolation: isolate;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 900px 500px at 50% -10%, rgba(212,175,106,0.14), transparent 60%),
+      radial-gradient(ellipse 700px 600px at 100% 100%, rgba(164,52,42,0.16), transparent 60%);
+    z-index: -1;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 420px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 40px 32px 36px;
+    text-align: center;
+  }
+
+  .card h1 {
+    margin: 0 0 6px;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    line-height: 1.15;
+    background: linear-gradient(120deg, #f0d99a, var(--gold) 55%, #a97c3d);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .card p.tagline {
+    margin: 0 0 32px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: var(--gold-soft);
+    opacity: 0.9;
+  }
+
+  .qr-wrap {
+    background: #fff;
+    border-radius: 16px;
+    padding: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+  }
+
+  #qrcode {
+    width: 220px;
+    height: 220px;
+  }
+
+  #qrcode img, #qrcode canvas {
+    width: 220px !important;
+    height: 220px !important;
+    display: block;
+  }
+
+  .scan-hint {
+    margin-top: 24px;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  footer {
+    margin-top: 40px;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    color: var(--text-dim);
+    opacity: 0.6;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>PrimeOne Car Rental</h1>
+    <p class="tagline">Drive your dreams, rent with ease</p>
+
+    <div class="qr-wrap">
+      <div id="qrcode"></div>
+    </div>
+
+    <p class="scan-hint">Scan to view our contact card</p>
+  </div>
+
+  <footer>PRIMEONE CAR RENTAL &middot; DRIVE YOUR DREAMS, RENT WITH EASE</footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    new QRCode(document.getElementById("qrcode"), {
+      text: window.location.origin + "/primeone-1.html",
+      width: 220,
+      height: 220,
+      colorDark: "#0a0e18",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.M
+    });
+  </script>
+
+</body>
+</html>
